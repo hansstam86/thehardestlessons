@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hardest Lessons — 27 Mistakes Hardware Founders Make</title>
+<meta name="description" content="The typical mistakes hardware founders make, from prototype to factory — what each one costs and how to avoid it. Drawn from The Hardest Hardware Lessons and The Hardest Factory Lessons by Hans Stam.">
+<meta name="author" content="Hans Stam">
+<link rel="canonical" href="https://thehardestlessons.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Hardest Lessons — 27 Mistakes Hardware Founders Make">
+<meta property="og:description" content="What each mistake costs, and how to avoid it. From prototype to factory.">
+<meta property="og:url" content="https://thehardestlessons.com/">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f0f0f'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' text-anchor='middle' fill='%23e8c547'%3EH%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0f0f0f; --panel:#161616; --border:#2a2a2a; --text:#e8e8e8; --muted:#9a9a9a; --accent:#e8c547;
+  --max:760px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.65}
+a{color:var(--accent)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+header.hero{padding:72px 0 40px;border-bottom:1px solid var(--border)}
+.eyebrow{font:600 13px/1 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 20px}
+h1{font-size:clamp(34px,6vw,54px);line-height:1.1;margin:0 0 20px;font-weight:700}
+.lede{font-size:21px;color:#cfcfcf;margin:0 0 8px}
+nav.toc{position:sticky;top:0;z-index:5;background:rgba(15,15,15,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 16px;font:14px/1 system-ui,sans-serif;white-space:nowrap}
+nav.toc a{color:var(--muted);text-decoration:none;padding:7px 11px;border-radius:999px;border:1px solid transparent}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--accent);border-color:var(--border);outline:none}
+section{padding:48px 0 8px}
+h2{font-size:30px;line-height:1.2;margin:0 0 6px}
+.phase-note{color:var(--muted);font:15px/1.5 system-ui,sans-serif;margin:0 0 24px}
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:28px 0 4px}
+.ladder div{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 12px;text-align:center}
+.ladder b{display:block;font-size:22px;color:var(--accent)}
+.ladder span{font:13px/1.3 system-ui,sans-serif;color:var(--muted)}
+article.m{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:22px 22px 18px;margin:0 0 18px}
+article.m h3{margin:0 0 12px;font-size:22px;line-height:1.25}
+.num{display:inline-block;min-width:34px;color:var(--accent);font:700 15px/1 system-ui,sans-serif;letter-spacing:.04em}
+.row{margin:0 0 10px}
+.row .k{display:block;font:700 12px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.row.fix .k{color:var(--accent)}
+.row p{margin:0}
+.src{margin:12px 0 0;font:13px/1.4 system-ui,sans-serif;color:#707070}
+.gate{background:var(--panel);border:1px solid var(--accent);border-radius:12px;padding:24px;margin:36px 0 8px}
+.gate h2{font-size:24px}
+.gate ol{padding-left:22px;margin:12px 0 0}
+.gate li{margin:0 0 8px}
+.cta{padding:56px 0 72px;text-align:center}
+.btn{display:inline-block;margin:6px;padding:12px 22px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#111;font:600 16px/1 system-ui,sans-serif;text-decoration:none}
+.btn.alt{background:transparent;color:var(--accent)}
+.btn:hover,.btn:focus-visible{filter:brightness(1.1);outline:none}
+footer{border-top:1px solid var(--border);padding:28px 0 48px;color:var(--muted);font:14px/1.6 system-ui,sans-serif}
+@media (max-width:560px){
+  body{font-size:17px}
+  .ladder{grid-template-columns:repeat(2,1fr)}
+  header.hero{padding-top:48px}
+  article.m{padding:18px 16px 14px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">The Hardest Lessons</p>
+    <h1>27 mistakes hardware founders make — and what each one costs.</h1>
+    <p class="lede">Every one of them looked reasonable at the time. They are not technical failures. They are decisions made under pressure, with good intentions, in the belief that the open issue would be manageable next phase.</p>
+    <p class="lede" style="color:var(--muted);font-size:17px">Drawn from <em>The Hardest Hardware Lessons</em> and <em>The Hardest Factory Lessons</em> by Hans Stam.</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <div class="wrap">
+    <a href="#root">The root mistake</a>
+    <a href="#prototyping">Prototyping</a>
+    <a href="#setup">Project set-up</a>
+    <a href="#evt">EVT</a>
+    <a href="#dvt">DVT</a>
+    <a href="#pvt">PVT</a>
+    <a href="#factory">The factory</a>
+    <a href="#gate">Gate check</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ROOT -->
+<section id="root">
+  <h2>The root mistake</h2>
+  <p class="phase-note">Almost everything below is a version of this one.</p>
+
+  <article class="m">
+    <h3><span class="num">01</span>Passing the gate under pressure</h3>
+    <div class="row"><span class="k">The mistake</span><p>Moving to the next phase with open issues that are “probably fine”, because investors, customers, competitors and a tired team all want the schedule kept.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>Each phase transition multiplies the cost of the same flaw by roughly 5 to 10 times. The fix itself doesn’t change. What changes is everything that has to be undone around it: the board re-spin, the certification re-test, the tooling modification, the production rework.</p></div>
+    <div class="ladder" aria-label="Cost of the same design flaw by phase">
+      <div><b>€2,000</b><span>in prototyping</span></div>
+      <div><b>€20,000</b><span>in EVT</span></div>
+      <div><b>€100,000</b><span>in DVT</span></div>
+      <div><b>€500,000+</b><span>in production</span></div>
+    </div>
+    <p class="src" style="margin-bottom:14px">Order-of-magnitude illustration from the book, not a quotation.</p>
+    <div class="row fix"><span class="k">The fix</span><p>Hold the gate on evidence, not on schedule. For every open item, write down what it costs to resolve here and what it is expected to cost in the next phase. “Probably fine” becomes a probability and a number.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Introduction, Chapter 1 and Conclusion</p>
+  </article>
+</section>
+
+<!-- PROTOTYPING -->
+<section id="prototyping">
+  <h2>Prototyping</h2>
+  <p class="phase-note">The only phase where being wrong is cheap enough to afford the full truth.</p>
+
+  <article class="m">
+    <h3><span class="num">02</span>Choosing the platform that solves today’s problem</h3>
+    <div class="row"><span class="k">The mistake</span><p>Picking the hardware platform that is best for the product right now, without asking what it does to the product’s full commercial life.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>Problems that surface later in the supply chain, in certification and in the upgrade path, when the platform can no longer be changed.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Evaluate the platform against explicit criteria, document the evaluation, and treat the decision as one that will be reviewed in hindsight if supply chain, certification or versioning go wrong. Because it will be.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 2</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">03</span>Skipping the functional definition to move faster</h3>
+    <div class="row"><span class="k">The mistake</span><p>Starting to build before anyone has written down what the product is supposed to do.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>More time, not less. Prototype work is spent validating features and targets nobody agreed, or work that conflicts with a teammate’s assumptions about the product.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Write the functional definition and get it agreed. The time it takes is recovered many times over.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 2</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">04</span>Developing form, function and feel one after another</h3>
+    <div class="row"><span class="k">The mistake</span><p>Treating the three prototype streams as sequential phases of one effort.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>Constraint conflicts between the streams are discovered late, when they are expensive to resolve.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Run them in parallel. The value is in the interactions between them, and those only show up when all three are developed together.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 2</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">05</span>Treating a prototype that passes a demo as ready</h3>
+    <div class="row"><span class="k">The mistake</span><p>Concluding that P1 is ready for DFM handoff because it performs its main function on the bench.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>A demo only proves the product works under controlled conditions. It does not show how it behaves at the edges of its specification, in its target environments, or at acceptable manufacturing yield.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Judge P1 against the full functional definition, not the headline features.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 2</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">06</span>Optimism at the DFM handoff</h3>
+    <div class="row"><span class="k">The mistake</span><p>Presenting the design as more complete and more resolved than it is, to make a strong impression or hit a date.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>You hand over the design and the unresolved risks hidden in it, into a phase where they cost far more to address.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Full transparency at handoff. Build an honest prototype, not an impressive one. Complete transparency is the sign of a mature development organisation, not of inadequate prototype work.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 2</p>
+  </article>
+</section>
+
+<!-- SETUP -->
+<section id="setup">
+  <h2>Project set-up</h2>
+  <p class="phase-note">The PRD, the TRD and the critical path are the operating system the programme runs on.</p>
+
+  <article class="m">
+    <h3><span class="num">07</span>Requirements two engineers can read differently</h3>
+    <div class="row"><span class="k">The mistake</span><p>Not writing requirements too loosely, but writing them so two engineers can read the same line and design to different specifications.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>The discrepancy stays invisible until the specifications meet in integration.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Have each requirement reviewed by the engineer who will design to it and the engineer who will test it, before it is baselined. If those two can’t agree what it means, it isn’t written correctly yet.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 3</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">08</span>Skipping the TRD because the team is experienced</h3>
+    <div class="row"><span class="k">The mistake</span><p>Treating the technical requirements document as overhead when the design feels familiar.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>In EVT integration, two team leads turn out to have held different, equally reasonable mental models of a critical interface.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Write it. The TRD’s value isn’t recording what is in people’s heads; it is making that knowledge explicit, shared and agreed, so incompatibilities surface in a document review instead of an integration test.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 3</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">09</span>Never naming the critical path</h3>
+    <div class="row"><span class="k">The mistake</span><p>Not identifying the critical path and not telling every team lead which tasks are on it.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>Leads prioritise what feels urgent — the nearest deadline, the loudest senior stakeholder — rather than what is critical. The programme misses its end date through many small slips nobody recognised as critical.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Identify the critical path explicitly and communicate it to everyone.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 3</p>
+  </article>
+</section>
+
+<!-- EVT -->
+<section id="evt">
+  <h2>EVT — Engineering Validation Test</h2>
+  <p class="phase-note">EVT fails at the interfaces between teams, in the last two weeks, and at the gate.</p>
+
+  <article class="m">
+    <h3><span class="num">10</span>Coding before the software architecture is complete</h3>
+    <div class="row"><span class="k">The mistake</span><p>Starting to code while modules have vague responsibilities, interfaces are not fully specified, or state machines haven’t been checked against the use cases.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>Every question the architecture leaves open gets answered by integration test results in the last weeks of EVT, at about ten times the cost.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Close the architecture first.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 4</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">11</span>Building test infrastructure when the product is ready to test</h3>
+    <div class="row"><span class="k">The mistake</span><p>Treating fixtures, test software, calibrated equipment and lab bookings as things that can be arranged afterwards.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>They all have lead time. The test programme is delayed by exactly as long as the infrastructure takes to build.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Start building test infrastructure on day one of EVT.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 4</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">12</span>Releasing Gerbers before the DFM review and post-simulation</h3>
+    <div class="row"><span class="k">The mistake</span><p>Sending the board to fabrication because every day of delay is a day on the critical path.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>An unresolved DFM or signal-integrity problem means a re-spin: 4 to 8 weeks of critical path, many times what skipping the review saved.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Complete the DFM review. Complete the post-simulation. Then release.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 4</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">13</span>Fixing the PCB outline before thermal and assembly analysis</h3>
+    <div class="row"><span class="k">The mistake</span><p>Committing the PCB outline before the thermal simulation and assembly analysis are done.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>Those analyses often force enclosure changes: a bigger heat sink, a repositioned component, a different mounting geometry. Each one hits the outline, and a board re-spin costs 4 to 8 weeks.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Run both analyses first. Committing early is a bet that they will confirm your first geometry.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 4</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">14</span>Delivering DFM requirements after the designs are committed</h3>
+    <div class="row"><span class="k">The mistake</span><p>Letting the manufacturing team review what has already been decided, instead of shaping it.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>A DFM requirement that arrives before layout is complete costs nothing. After Gerbers are released it means a layout revision. After boards are built it means a production workaround or a re-spin.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Deliver DFM requirements at the beginning of EVT, before the engineering designs are committed.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 4</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">15</span>A conditional EVT pass with “manageable” issues</h3>
+    <div class="row"><span class="k">The mistake</span><p>Passing the gate with open issues described as manageable in DVT, without saying what “manageable” means.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>Issues passed forward without a specific plan are the ones still open at the DVT gate, at five times the cost to resolve.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>For every conditional item, define the resolution, the owner, the date, and which DVT activities depend on it. Without that, it is a pass in name only.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 4</p>
+  </article>
+</section>
+
+<!-- DVT -->
+<section id="dvt">
+  <h2>DVT — Design Validation Test</h2>
+  <p class="phase-note">The hardest lesson of DVT isn’t technical. It is holding the gate when the pressure to pass is highest.</p>
+
+  <article class="m">
+    <h3><span class="num">16</span>Treating certification as a step after engineering</h3>
+    <div class="row"><span class="k">The mistake</span><p>Planning certification for when the design is done.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>A failure caught in pre-compliance in week 2 of a 10-week DVT costs a design change and a re-test. The same failure caught at formal certification in week 8 costs that plus 4 to 8 weeks of laboratory re-scheduling on the critical path.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Plan and resource certification from the start of DVT, with pre-compliance testing front-loaded to the first weeks on the first hard-tooled hardware.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 5</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">17</span>Releasing hard tooling before thermal and assembly analysis</h3>
+    <div class="row"><span class="k">The mistake</span><p>Committing to tooling under schedule pressure and deferring the two analyses most likely to change the enclosure.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>The thermal simulation takes 2 to 3 days. The assembly analysis, by a production assembler on the EVT mockup, takes 1 day. Together they cost under €5,000. A tooling modification driven by either finding costs €15,000 to €50,000.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Do the analysis before releasing the tooling.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 5</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">18</span>Closing action items by documenting them</h3>
+    <div class="row"><span class="k">The mistake</span><p>Treating closure as paperwork when DVT is running late against a fixed PVT start date.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>Items marked closed that are only planned or initiated come back later, and at a higher price.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>An action item is closed when the corrective action is implemented, verified on hardware and confirmed effective. Not before.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 5</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">19</span>Passing the DVT gate when the evidence doesn’t support it</h3>
+    <div class="row"><span class="k">The mistake</span><p>Carrying open DVT items into PVT because the dates are fixed.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>The expected cost in PVT is usually 3 to 8 times higher, because PVT has no schedule buffer for problems DVT was supposed to resolve.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Hold the gate. Teams that do are the ones that run PVT on time and on budget.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 5</p>
+  </article>
+</section>
+
+<!-- PVT -->
+<section id="pvt">
+  <h2>PVT — Production Validation Test</h2>
+  <p class="phase-note">The same lesson as DVT, amplified.</p>
+
+  <article class="m">
+    <h3><span class="num">20</span>Passing PVT because the launch is three weeks away</h3>
+    <div class="row"><span class="k">The mistake</span><p>Moving into mass production with a pilot-run yield below target.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>A two-week PVT extension costs delayed revenue. A mass production failure costs delayed revenue plus rework, yield loss, potential recalls and customer relationship damage, all at once, with no development team standing by to help.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Hold the gate when the evidence requires it. The cost of holding it is always bounded. The cost of not holding it never is.</p></div>
+    <p class="src">The Hardest Hardware Lessons — Chapter 6 and Conclusion</p>
+  </article>
+</section>
+
+<!-- FACTORY -->
+<section id="factory">
+  <h2>The factory</h2>
+  <p class="phase-note">The factory is a mirror. It doesn’t add quality to your product; it reveals the quality of what you brought it.</p>
+
+  <article class="m">
+    <h3><span class="num">21</span>Treating the factory as a service</h3>
+    <div class="row"><span class="k">The mistake</span><p>Files in, goods out, everything in between somebody else’s business.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>The factory is an operation run by people, under a business model, on a calendar, with a power structure. Your biggest factory risk is being a low-priority customer and not knowing it, and being told only what the factory chooses to tell you.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Learn the operation. Walk the floor. Map the power. Know the calendar.</p></div>
+    <p class="src">The Hardest Factory Lessons — Chapter 1</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">22</span>Judging the factory by the tour</h3>
+    <div class="row"><span class="k">The mistake</span><p>Leaving impressed by the certificates, the running SMT line, the quiet operators and the defect rate on the slide.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>Everything you saw was real and almost none of it was information. You don’t know the true first-pass yield, the staff turnover, whether the inspector can hold a shipment on the last day of the month, or how that defect rate was counted.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Learn where to look: documents the tour doesn’t open, data the slide deck doesn’t show, and behaviour that only appears under pressure.</p></div>
+    <p class="src">The Hardest Factory Lessons — Introduction</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">23</span>Leaving the receiving dock to the factory’s defaults</h3>
+    <div class="row"><span class="k">The mistake</span><p>Never specifying what happens when components arrive.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>The factory’s defaults decide: inspection tuned to the factory’s risks, material review decisions made under schedule pressure without you in the room, traceability kept at whatever depth was convenient, and the door left open to parts that aren’t what the label says.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Put it on paper: inspection criteria by component class, a disposition framework for held material, traceability requirements, moisture-sensitive handling, and counterfeit controls. The dock is the cheapest place to find that a part is wrong.</p></div>
+    <p class="src">The Hardest Factory Lessons — Chapter 2</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">24</span>Trusting the warehouse database</h3>
+    <div class="row"><span class="k">The mistake</span><p>Assuming the records are the reality.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>The warehouse fails in silence and bills in arrears: the shortage the line finds on Wednesday that the records knew on Friday, the oldest reels clustered into your most stressed builds, and the excess-and-obsolete bill presented when you have the least leverage.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Check, in an afternoon: demand a clear-to-build, count ten locations, ask one picker which reel and why, and read one exposure report a month.</p></div>
+    <p class="src">The Hardest Factory Lessons — Chapter 3</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">25</span>Trusting the SMT yield you are shown</h3>
+    <div class="row"><span class="k">The mistake</span><p>Accepting the headline yield as the process’s real performance.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>The yield you’re shown is the yield after rework. A quiet AOI may mean tuning, not quality. The oven profile may be a memory of the one that was ratified. And short runs are disproportionately built from the line’s worst hours.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Demand the primary data, by stage, by defect, by location, and read it. Remember that half of every yield number was set months earlier, at your layout review.</p></div>
+    <p class="src">The Hardest Factory Lessons — Chapter 4</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">26</span>Not managing the tool you paid for</h3>
+    <div class="row"><span class="k">The mistake</span><p>Treating the molder as your supplier’s problem. You paid for the tool, the molder runs it, the CM marks it up, and none of you will be in the same room until something has gone wrong.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>A tool with an unread shot count is an outage with an unknown date. A cosmetic spec without boundary samples is an argument scheduled for your highest-volume month.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Get the disclosed address, an ownership plate, the shot count read quarterly, a process sheet with a press’s name on it, a mass balance that keeps regrind honest, boundary samples for cosmetics, and an annual half-day with the tool open on a bench.</p></div>
+    <p class="src">The Hardest Factory Lessons — Chapter 5</p>
+  </article>
+
+  <article class="m">
+    <h3><span class="num">27</span>Underestimating assembly</h3>
+    <div class="row"><span class="k">The mistake</span><p>Hardware teams are trained on electronics and focused on SMT, so they consistently underestimate the area where the largest share of labour, cost and defect opportunities live.</p></div>
+    <div class="row"><span class="k">What it costs</span><p>Every screw and cable in your design is paid for sixty times an hour, forever, and an assembly step that depends on operator skill becomes a quality dip when the workforce turns over.</p></div>
+    <div class="row fix"><span class="k">The fix</span><p>Review the design for the line before it is frozen. The cheapest time to learn what the factory will cost is before it can no longer change what you send it.</p></div>
+    <p class="src">The Hardest Factory Lessons — Introduction</p>
+  </article>
+</section>
+
+<!-- GATE CHECK -->
+<section id="gate" style="padding-top:24px">
+  <div class="gate">
+    <h2>Before you pass the next gate</h2>
+    <p style="margin:6px 0 0;color:var(--muted);font:15px/1.5 system-ui,sans-serif">Run it against where you actually are, not where you want to be.</p>
+    <ol>
+      <li>Which items can’t you check off with evidence? Each one is a cost you are carrying into the next phase.</li>
+      <li>For each: is it cheaper to resolve now, or at the next phase?</li>
+      <li>For every “manageable” issue: what is the resolution, who owns it, by when, and what depends on it?</li>
+      <li>Is anyone on your team allowed to say the gate isn’t ready, and is that person rewarded for it?</li>
+    </ol>
+    <p class="src" style="margin-top:16px">From the conclusion of The Hardest Hardware Lessons</p>
+  </div>
+</section>
+
+</main>
+
+<div class="cta">
+  <div class="wrap">
+    <h2 style="font-size:26px">The unpublished version of how hardware gets built</h2>
+    <p style="color:var(--muted);margin:0 0 22px">Every lesson above is one paragraph from the books. The books have the rest: the reasoning, the checklists and the templates.</p>
+    <a class="btn" href="https://thehardesthardwarelessons.com/">The Hardest Hardware Lessons</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p style="margin:0 0 8px">© Hans Stam. Cost figures are order-of-magnitude illustrations from the books, not quotations; your numbers will differ, and the ratios are the argument.</p>
+    <p style="margin:0">Examples draw mainly on Chinese contract manufacturing; the mechanics transfer elsewhere.</p>
+  </div>
+</footer>
+
+</body>
+</html>
