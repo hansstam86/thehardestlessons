@@ -5,8 +5,8 @@ Static one-page site: 27 typical mistakes hardware founders make, from prototype
 - `index.html` is the whole site (inline CSS, no build). Style matches thehardesthardwarelessons.com (`#0f0f0f`, accent `#e8c547`, Georgia).
 - Factory-book mistakes (21 to 27) come from the intro and Chapters 1 to 5 only. Chapters 6 to 17 were not read; add them when wanted.
 
-## Not done yet (each needs Hans's OK)
-1. Create GitHub repo `hansstam86/thehardestlessons` and push.
-2. Enable GitHub Pages (main branch, root) and Enforce HTTPS.
-3. Add a `CNAME` file containing `thehardestlessons.com`.
-4. At GoDaddy: remove the current forward on `thehardestlessons.com` (it forwards to thehardesthardwarelessons.com) and point DNS at GitHub Pages: 4 A records on `@` (185.199.108.153, .109.153, .110.153, .111.153) and `www` CNAME to `hansstam86.github.io`.
+## Hosting (set up 2026-11-02)
+- Repo `hansstam86/thehardestlessons`, GitHub Pages from `main` (root), custom domain via `CNAME`.
+- GoDaddy DNS: 4 A records on `@` (185.199.108.153, .109.153, .110.153, .111.153) and `www` CNAME to `hansstam86.github.io`. The old 301 forward to thehardesthardwarelessons.com was removed.
+- Enforce HTTPS: pending. GitHub has not issued the certificate yet; once it exists run
+  `gh api -X PUT repos/hansstam86/thehardestlessons/pages -F https_enforced=true`.
